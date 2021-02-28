@@ -4,8 +4,8 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('home') }}" class="text-dark">Home</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('products') }}" class="text-dark">List Jersey</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Jersey Detail</li>
+                    <li class="breadcrumb-item"><a href="{{ route('products') }}" class="text-dark">List Product</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Product Detail</li>
                 </ol>
             </nav>
         </div>
@@ -25,7 +25,7 @@
         <div class="col-md-6">
             <div class="card gambar-product">
                 <div class="card-body">
-                    <img src="{{ url('assets/jersey') }}/{{ $product->gambar }}" class="img-fluid">
+                    <img src="{{ asset( $product->gambar ) }}" class="img-fluid">
                 </div>
             </div>
         </div>
@@ -47,10 +47,10 @@
                     <form wire:submit.prevent="masukkanKeranjang"> 
                     <table class="table" style="border-top : hidden">
                         <tr>
-                            <td>Liga</td>
+                            <td>Product</td>
                             <td>:</td>
                             <td>
-                                <img src="{{ url('assets/liga') }}/{{ $product->merk->gambar }}" class="img-fluid"
+                                <img src="{{ asset( $product->gambar ) }}" class="img-fluid"
                                     width="50">
                             </td>
                         </tr>

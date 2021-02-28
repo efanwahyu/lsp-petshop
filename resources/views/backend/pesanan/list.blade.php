@@ -24,7 +24,7 @@
                             <td>
                                 <?php $pesanan_details = \App\PesananDetail::where('pesanan_id', $pesanan->id)->get(); ?>
                                 @foreach ($pesanan_details as $pesanan_detail)
-                                <img src="{{ url('assets/jersey') }}/{{ $pesanan_detail->product->gambar }}"
+                                <img src="{{ asset( $pesanan_detail->product->gambar) }}"
                                     class="img-fluid" width="50">
                                 {{ $pesanan_detail->product->nama }}
                                 <br>
@@ -38,7 +38,7 @@
                                 @endif
                             </td>
                             <td><strong>Rp. {{ number_format($pesanan->total_harga) }}</strong></td>
-                            <td>{{ Auth::user()->name }}</td>
+                            <td>{{$pesanan->user->name }}</td>
                         </tr>
                         @empty
                         <tr>

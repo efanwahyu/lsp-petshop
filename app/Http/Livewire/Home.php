@@ -12,7 +12,7 @@ class Home extends Component
     {
         return view('livewire.home', [
             'products' => Product::take(4)->get(),
-            'merks' => Merk::all()
+            'merks' => Merk::take(4)->get()
         ]);
     }
 }

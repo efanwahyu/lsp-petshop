@@ -2,19 +2,19 @@
 
    {{-- BANNER --}}
    <div class="banner">
-      <img src="{{ url('assets/slider/slider1.png') }}" alt="">
+      <img src="{{ url('assets/slider/kucing.jpg') }}" alt="">
    </div>
 
    {{-- PILIH LIGA  --}}
    <section class="pilih-liga mt-4">
-      <h3><strong>Pilih Liga</strong></h3>
+      <h3><strong>Pilih Merk</strong></h3>
       <div class="row mt-4">
       @foreach($merks as $merk)
          <div class="col">
             <a href="{{ route('products.merk', $merk->id) }}">
                <div class="card shadow">
                   <div class="card-body text-center">
-                     <img src="{{ url('assets/liga') }}/{{ $merk->gambar }}" class="img-fluid">
+                     <img src="{{ asset( $merk->gambar ) }}" class="img-fluid">
                   </div>
                </div>
             </a>
@@ -34,7 +34,7 @@
          <div class="col-md-3">
             <div class="card">
                <div class="card-body text-center">
-                  <img src="{{ url('assets/jersey') }}/{{ $product->gambar }}" class="img-fluid">
+                  <img src="{{ asset( $product->gambar ) }}" alt="" style="height: 200px" class="img-fluid">
                   <div class="row mt-2">
                      <div class="col-md-12">
                         <h5><strong>{{ $product->nama }}</strong> </h5>

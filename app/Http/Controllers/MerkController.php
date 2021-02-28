@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Merk;
 use Illuminate\Http\Request;
 
 class MerkController extends Controller
@@ -13,7 +14,8 @@ class MerkController extends Controller
      */
     public function index()
     {
-        //
+        $merek = Merk::all();
+        return view('backend.merk.dashboard', compact('merek'));
     }
 
     /**
@@ -23,7 +25,7 @@ class MerkController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.merk.create');
     }
 
     /**
@@ -34,7 +36,23 @@ class MerkController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'nama' => 'required',
+            'merk' => 'required',
+            'gambar' => 'required'
+        ]);
+
+        $gambar = $request->gambar;
+        $new_gambar = time().$gambar->getClientOriginalName();
+
+        $merek = Merk::create([
+            'nama' => $request->nama,
+            'merk' => $request->merk,
+            'gambar' => 'assets/merk/' .$new_gambar
+        ]);
+
+        $gambar->move('assets/merk/', $new_gambar);
+        return redirect()->back()->with('success','Merk anda berhasil disimpan');
     }
 
     /**
@@ -56,7 +74,8 @@ class MerkController extends Controller
      */
     public function edit($id)
     {
-        //
+        $merek = Merk::findorfail($id);
+        return view('backend.merk.edit', compact('merek'));
     }
 
     /**
@@ -68,7 +87,39 @@ class MerkController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'nama' => 'required',
+            'merk' => 'required'          
+         ]);
+
+        
+
+        $merek = Merk::findorfail($id);
+
+        if ($request->has('gambar')) {
+            $gambar = $request->gambar;
+            $new_gambar = time().$gambar->getClientOriginalName();
+            $gambar->move('assets/merk/', $new_gambar);
+
+        $merek_data = [
+            'nama' => $request->nama,
+            'merk' => $request->merk,
+            'gambar' => 'assets/merk/' .$new_gambar   
+        ];
+        }
+        else {
+        $merek_data = [
+            'nama' => $request->nama,
+            'merk' => $request->merk
+        ];
+        }
+    
+
+        //$post->tags()->sync($request->tags);
+        $merek->update($merek_data);
+
+        
+        return redirect('/merk')->with('success','Merk anda berhasil diupdate');
     }
 
     /**
@@ -79,6 +130,9 @@ class MerkController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $merek = Merk::findorfail($id);
+        $merek->delete();
+
+        return redirect()->back()->with('success','Merk Berhasil Dihapus');
     }
 }

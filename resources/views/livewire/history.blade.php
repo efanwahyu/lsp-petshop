@@ -45,7 +45,7 @@
                             <td>
                                 <?php $pesanan_details = \App\PesananDetail::where('pesanan_id', $pesanan->id)->get(); ?>
                                 @foreach ($pesanan_details as $pesanan_detail)
-                                <img src="{{ url('assets/jersey') }}/{{ $pesanan_detail->product->gambar }}"
+                                <img src="{{ asset($pesanan_detail->product->gambar) }}"
                                     class="img-fluid" width="50">
                                 {{ $pesanan_detail->product->nama }}
                                 <br>
@@ -79,10 +79,10 @@
                 <div class="card-body">
                     <p>Untuk pembayaran silahkan dapat transfer di rekening dibawah ini : </p>
                     <div class="media">
-                        <img class="mr-3" src="{{ url('assets/bri.png') }}" alt="Bank BRI" width="60">
+                        <img class="mr-3" src="{{ url('assets/bca.png') }}" alt="Bank BCA" width="60">
                         <div class="media-body">
-                            <h5 class="mt-0">BANK BRI</h5>
-                            No. Rekening 012345-678-910 atas nama <strong>Muhammad Afifuddin</strong>
+                            <h5 class="mt-0">BANK BCA</h5>
+                            No. Rekening 012345-678-910 atas nama <strong>Efan Wahyu Arifianto</strong>
                         </div>
                     </div>
                 </div>

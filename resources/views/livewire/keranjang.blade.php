@@ -42,7 +42,7 @@
                         <tr>
                             <td>{{ $no++ }}</td>
                             <td>
-                                <img src="{{ url('assets/jersey') }}/{{ $pesanan_detail->product->gambar }}" class="img-fluid" width="200">
+                                <img src="{{ asset( $pesanan_detail->product->gambar) }}" class="img-fluid" width="200">
                             </td>
                             <td>
                                 {{ $pesanan_detail->product->nama }}

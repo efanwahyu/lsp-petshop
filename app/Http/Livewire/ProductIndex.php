@@ -29,7 +29,7 @@ class ProductIndex extends Component
         
         return view('livewire.product-index', [
             'products' => $products,
-            'title' => 'List Jersey'
+            'title' => 'List Product'
         ]);
     }
 }

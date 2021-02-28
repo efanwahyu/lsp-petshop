@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-md navbar-light bg-white">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                Pet<strong>Shop</strong>
+            <strong style="font-size: 20px"><a style="color: red;">Efan</a>PetsShop</strong>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -18,7 +18,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            List Jersey
+                            List Product
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         @foreach($merks as $merk)
@@ -26,7 +26,7 @@
                                 href="{{ route('products.merk', $merk->id) }}">{{ $merk->nama }}</a>
                         @endforeach
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ route('products') }}">Semua Liga</a>
+                            <a class="dropdown-item" href="{{ route('products') }}">Semua Product</a>
                         </div>
                     </li>
                     <li class="nav-item">

@@ -2,7 +2,7 @@
 @section('content')
 	
 	<br><br>
-	<a href="{{ route('tester.create') }}" class="btn btn-info btn-sm">Tambah Produk</a>
+	<a href="{{ route('produk.create') }}" class="btn btn-info btn-sm">Tambah Produk</a>
 	<br><br>
 
 	<table class="table table-striped table-hover table-sm table-bordered">
@@ -32,10 +32,10 @@
 				
 				<td><img src="{{ asset( $hasil->gambar ) }}" class="img-fluid" style="width:100px"></td>
 				<td>
-					<form action="{{ route('tester.destroy', $hasil->id )}}" method="POST">
+					<form action="{{ route('produk.destroy', $hasil->id )}}" method="POST">
 						@csrf
 						@method('delete')
-					<a href="{{ route('tester.edit', $hasil->id ) }}" class="btn btn-primary btn-sm">Edit</a>
+					<a href="{{ route('produk.edit', $hasil->id ) }}" class="btn btn-primary btn-sm">Edit</a>
 					<button type="submit" class="btn btn-danger btn-sm">Delete</button>
 					</form>
 				</td>

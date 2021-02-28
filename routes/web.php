@@ -34,6 +34,7 @@ Route::prefix('admin')->group(function(){
     Route::get('/logout',[Admin\Auth\LoginController::class,'logout'])->name('admin.logout');
 });
 
-Route::resource('/tester', 'ProductController');
+Route::resource('/produk', 'ProductController');
 Route::resource('/list', 'ListProductController');
-Route::resource('/AdminMerk', 'MerkController');
+Route::resource('/merk', 'MerkController');
+Route::resource('/user', 'UserController');

@@ -4,7 +4,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('home') }}" class="text-dark">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">List Jersey</li>
+                    <li class="breadcrumb-item active" aria-current="page">List Product</li>
                 </ol>
             </nav>
         </div>
@@ -33,7 +33,7 @@
             <div class="col-md-3 mb-3">
                 <div class="card">
                     <div class="card-body text-center">
-                        <img src="{{ url('assets/jersey') }}/{{ $product->gambar }}" class="img-fluid">
+                        <img src="{{ asset( $product->gambar ) }}" alt="" style="height: 200px" class="img-fluid">
                         <div class="row mt-2">
                             <div class="col-md-12">
                                 <h5><strong>{{ $product->nama }}</strong> </h5>

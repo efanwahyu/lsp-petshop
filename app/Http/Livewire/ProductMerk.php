@@ -39,7 +39,7 @@ class ProductMerk extends Component
         
         return view('livewire.product-index', [
             'products' => $products,
-            'title' => 'Jersey '.$this->merk->nama
+            'title' => 'Product '.$this->merk->nama
         ]);
     }
 }

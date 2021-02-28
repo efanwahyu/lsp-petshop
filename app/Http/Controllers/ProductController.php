@@ -56,10 +56,10 @@ class ProductController extends Controller
             'is_ready' => $request->is_ready,
             'jenis' => $request->jenis,
             'berat' => $request->berat,
-            'gambar' => 'assets/jersey/' .$new_gambar
+            'gambar' => 'assets/produk/' .$new_gambar
         ]);
 
-        $gambar->move('assets/jersey/', $new_gambar);
+        $gambar->move('assets/produk/', $new_gambar);
         return redirect()->back()->with('success','Product anda berhasil disimpan');
     }
 
@@ -111,7 +111,7 @@ class ProductController extends Controller
         if ($request->has('gambar')) {
             $gambar = $request->gambar;
             $new_gambar = time().$gambar->getClientOriginalName();
-            $gambar->move('assets/jersey/', $new_gambar);
+            $gambar->move('assets/produk/', $new_gambar);
 
         $barang_data = [
             'nama' => $request->nama,
@@ -120,7 +120,7 @@ class ProductController extends Controller
             'is_ready' => $request->is_ready,
             'jenis' => $request->jenis,
             'berat' => $request->berat,
-            'gambar' => 'assets/jersey/' .$new_gambar   
+            'gambar' => 'assets/produk/' .$new_gambar   
         ];
         }
         else {
@@ -139,7 +139,7 @@ class ProductController extends Controller
         $barang->update($barang_data);
 
         
-        return redirect('/tester')->with('success','Product anda berhasil diupdate'); 
+        return redirect('/produk')->with('success','Product anda berhasil diupdate'); 
     }
 
     /**
